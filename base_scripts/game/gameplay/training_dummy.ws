@@ -127,7 +127,7 @@ class CTrainingDummy extends CActor
 						{
 							FactsAdd("training_dummies_killed", 1);
 						}
-						thePlayer.IncreaseExp( RoundF( RandRangeF(1, 2) ) );
+						thePlayer.IncreaseExp( RoundF( RandRangeF(100, 200) ) );
 						//thePlayer.OnActorKilled( this );
 					}
 					isDestroyed = true;
