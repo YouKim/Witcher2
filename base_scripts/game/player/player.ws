@@ -2887,7 +2887,7 @@ import class CPlayer extends CActor
 		{
 			return false;
 		}
-		if(GetCurrentWeight() > GetMaxWeight() )
+		if(false)
 		{
 			if(lastEncumberedMsg + 5.0 < theGame.GetEngineTime())
 			{ 
