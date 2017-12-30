@@ -4037,7 +4037,7 @@ mBoolean( true ) );
 			level = level + 1;
 			
 			talents = GetTalentPoints();
-			SetTalentPoints( talents + 1 );
+			SetTalentPoints( talents + 5 );
 			
 			levelname = StringToName("Level" + level);
 			GetCharacterStats().AddAbility( levelname );
