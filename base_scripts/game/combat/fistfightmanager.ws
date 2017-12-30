@@ -748,16 +748,7 @@ state Combat in W2FistfightManager
 		{
 			case SFT_WaitForHitQTE:
 			{
-				// decide if we should perform a finisher
-				if ( healthPercentage < 30.0 || health <= 10.0 )
-				{
-					// finish the NPC off
-					m_stage = SFT_Finisher;
-				}
-				else
-				{
-					m_stage = RandomizeHitType();
-				}
+				m_stage = SFT_Finisher;
 				break;
 			}
 				
