@@ -892,23 +892,7 @@ import class W2MinigameDicePoker extends CMinigame
 	
 	final function GetWinner() : int
 	{
-		var playerFigure, npcFigure : W2MinigameDicePokerResult;
-		var playerMajor, playerMinor : int;
-		var npcMajor, npcMinor : int;
-		
-		GetPlayerScore( DicePoker_Player, playerFigure, playerMajor, playerMinor );
-		GetPlayerScore( DicePoker_NPC, npcFigure, npcMajor, npcMinor );
-		
-		if ( playerFigure > npcFigure ) return DicePoker_Player;
-		if ( playerFigure < npcFigure ) return DicePoker_NPC;
-		
-		if ( playerMajor > npcMajor ) return DicePoker_Player;
-		if ( playerMajor < npcMajor ) return DicePoker_NPC;
-		
-		if ( playerMinor > npcMinor ) return DicePoker_Player;
-		if ( playerMinor < npcMinor ) return DicePoker_NPC;
-		
-		return -1;
+		return DicePoker_Player;
 	}
 	
 	final function BetAI( playerBet : int ) : int
