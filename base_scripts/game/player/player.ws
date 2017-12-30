@@ -3629,36 +3629,29 @@ import class CPlayer extends CActor
 			vitalityNonCombatRegen = vitalityCombatRegen + nightVitRegen;
 		}
 		
-			//SetToxicity( GetToxicity() - toxicityDeRegen );
-			if(thePlayer.GetCurrentPlayerState() == PS_CombatFistfightDynamic)
+		//SetToxicity( GetToxicity() - toxicityDeRegen );
+		if(thePlayer.GetCurrentPlayerState() == PS_CombatFistfightDynamic)
+		{
+			adrenalineRegen = 0;
+		}
+		if ( IsInCombat() )
+		{
+			if ( GetWitcherType(WitcherType_Alchemy) && GetToxicity() > toxicityTreshold ) 
 			{
-				adrenalineRegen = 0;
+				if ( adrenalineRegen != 0 ) SetAdrenaline( GetAdrenaline() + ( adrenalineRegen*thePlayer.GetAdrenalineMult() ) );
 			}
-			if ( IsInCombat() )
-			{
-				if ( GetWitcherType(WitcherType_Alchemy) && GetToxicity() > toxicityTreshold ) 
-				{
-					if ( adrenalineRegen != 0 ) SetAdrenaline( GetAdrenaline() + ( adrenalineRegen*thePlayer.GetAdrenalineMult() ) );
-				}
-				
-				
-				IncreaseStamina( staminaCombatRegen );
-				// in combat mode stamin regen in time only if not in sword type build
-				//if ( GetWitcherType() != WitcherType_Sword )
-				//{
-					if ( staminaCombatRegen != 0 ) IncreaseStamina( staminaCombatRegen );
-					// add toxicity level regen bonus here later!!!
-				//}
-				if (!dontRecalcStats) IncreaseHealth( 0.1 + vitalityCombatRegen );
-			}
-			else
-			{
-				SetAdrenaline( GetAdrenaline() - ( adrenalineDeRegen ) );
-				// outside combat faster endurance regen
-				IncreaseStamina( staminaNonCombatRegen );
-				// and vitality regen
-				IncreaseHealth( vitalityNonCombatRegen );
-			}
+
+			IncreaseStamina( 0.5 + 2*staminaCombatRegen );
+			IncreaseHealth( 1 + 1.5*vitalityCombatRegen );
+		}
+		else
+		{
+			SetAdrenaline( GetAdrenaline() - ( adrenalineDeRegen ) );
+			// outside combat faster endurance regen
+			IncreaseStamina( 0.5 + staminaNonCombatRegen );
+			// and vitality regen
+			IncreaseHealth( 1 + vitalityNonCombatRegen );
+		}
 		
 		if(GetHealth() < 0.3*vitality && !playCameraVitEffect)
 		{
