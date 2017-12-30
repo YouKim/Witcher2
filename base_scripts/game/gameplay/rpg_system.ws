@@ -88,13 +88,14 @@ function CalculateGainedExperienceAfterKill(actor : CActor, apply_when_calculate
 	
 	level_player = thePlayer.GetLevel();
 	level_opponent = RoundF( actor.GetCharacterStats().GetFinalAttribute('level') );
-	experience_basic = RoundF( actor.GetCharacterStats().GetFinalAttribute('experience') * experienceBonus );
+	experience_basic = RoundF( actor.GetCharacterStats().GetFinalAttribute('experience') * experienceBonus ) + 10;
 
 	level_diff = RoundF((level_opponent - level_player) / 2) + 1;
 	
 	if (level_diff <= 0)
 	{
-		// no experience gained - player have to high level
+		level_diff = 1;
+		experience_final = 10;
 	}
 	else
 	{
@@ -104,7 +105,7 @@ function CalculateGainedExperienceAfterKill(actor : CActor, apply_when_calculate
 	
 	if (half)
 	{
-		experience_final = RoundF( experience_final / 20 );
+		experience_final = RoundF( experience_final / 2 );
 	}
 	
 	if (apply_when_calculated)
