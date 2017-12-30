@@ -467,14 +467,7 @@ class W2MinigameWristWrestling extends CMinigame
 	
 	function IsPointerInHotSpot() : bool
 	{
-		if ( (m_guiPointerPos >= m_guiHotSpotPos) && (m_guiPointerPos < (m_guiHotSpotPos + m_guiHotSpotWidth)) )
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return true;
 	}
 	
 	latent function InitGraphics()
@@ -914,7 +907,7 @@ class WristWrestlingLogicSimple extends WristWrestlingLogic
 		m_lastInHotspot = true;
 		m_isUsingPad = theGame.IsUsingPad();
 		m_tiredFactor = 0.0;
-		m_barSpeed = 0.1;
+		m_barSpeed = 0.2;
 	}
 	
 	function ProcessLogic( isPointerInHotSpot : bool, timeDelta : float ) : bool
