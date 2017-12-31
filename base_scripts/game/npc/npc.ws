@@ -199,8 +199,8 @@ import class CNewNPC extends CActor
 	default deadDestructDist = 0;
 	//default dicePokerParams = { difficultyLevel = DicePoker_Normal, minimumBet = 10 };
 	default diceDifficultyLevel = DicePoker_Normal;
-	default diceMinimumBet = 5;
-	default diceMaximumBet = 10;
+	default diceMinimumBet = 50;
+	default diceMaximumBet = 100;
 	default usesMageTeleport = true;
 	private var pushingCooldown : float;
 	default pushingCooldown = 0;
