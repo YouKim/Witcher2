@@ -161,12 +161,12 @@ class CGuiAlchemyStandalone extends CGuiPanel
 		var mutChance : float = thePlayer.GetCharacterStats().GetAttribute('mutagen_chance');
 		var randGlob, randKat, rand : int;
 		
-		randGlob = RoundF( RandRangeF( 1, 100 ) );
-		randKat = RoundF( RandRangeF( 1, 100 ) );
+		randGlob = RoundF( RandRangeF( 1, 50 ) );
+		randKat = RoundF( RandRangeF( 51, 100 ) );
 		
 		if ( randGlob < mutChance )
 		{
-			if ( ( randKat > 50 ) && ( randKat < 90 ) )
+			if ( ( randKat > 50 ) && ( randKat < 60 ) )
 			{
 				randKat = RoundF( RandRangeF( 1, 6 ) );
 				switch( randKat )
@@ -179,7 +179,7 @@ class CGuiAlchemyStandalone extends CGuiPanel
 					case 6:AddItem('Mutagen of Strength');
 				}
 			} else
-			if ( randKat >= 90 )
+			if ( randKat >= 60 )
 			{
 				randKat = RoundF( RandRangeF( 1, 5 ) );
 				switch( randKat )
