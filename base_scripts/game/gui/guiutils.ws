@@ -1078,7 +1078,7 @@ import class CGuiUtils extends CObject
 		
 		if ( inv == thePlayer.GetInventory() )
 		{
-			return (1 + RoundFEx(item_price / 10));
+			return RoundFEx((item_price * 2.4) * multi + 1);
 		} 
 		else
 		{
